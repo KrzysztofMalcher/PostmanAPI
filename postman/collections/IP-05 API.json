@@ -1,0 +1,722 @@
+{
+	"info": {
+		"_postman_id": "a08258c9-024e-404b-ab29-389840e9e983",
+		"name": "IP-05 API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "4104157-a08258c9-024e-404b-ab29-389840e9e983"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "GetMachines_test",
+					"id": "66dcf87b-1d96-4ed1-8c49-241b09c054ae",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api-uk-points.easypack24.net/v1/points?status=Operating&per_page=10000",
+							"protocol": "https",
+							"host": [
+								"api-uk-points",
+								"easypack24",
+								"net"
+							],
+							"path": [
+								"v1",
+								"points"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "Operating"
+								},
+								{
+									"key": "per_page",
+									"value": "10000"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "7af1b4b5-b1e1-4a2a-a8d9-8d03dce8a561"
+		},
+		{
+			"name": "CreateParcel_stage",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"parcel_id\", pm.response.json().id);"
+						],
+						"type": "text/javascript",
+						"id": "b5f7c971-086d-4e21-8ac1-eaa27ef74672"
+					}
+				}
+			],
+			"id": "0e066c9f-0539-4b1a-aaf1-7b25cd9f27e7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "Application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"customer_reference\":\"test\", \n\t\"receiver_phone\":\"7999999999\", \n\t\"receiver_email\":\"receiver@grupainteger.pl\", \n\t\"size\":\"B\", \n\t\"target_machine_id\":\"UKABE12705\",\n\t\"service_type\":\"2DAY\",\n\t\"weight\":\"1500\" \n}\n"
+				},
+				"url": {
+					"raw": "https://stage-api-uk.easypack24.net/v4/customers/info@metapack.com/parcels?additional1=MetaPack&=",
+					"protocol": "https",
+					"host": [
+						"stage-api-uk",
+						"easypack24",
+						"net"
+					],
+					"path": [
+						"v4",
+						"customers",
+						"info@metapack.com",
+						"parcels"
+					],
+					"query": [
+						{
+							"key": "additional1",
+							"value": "MetaPack"
+						},
+						{
+							"key": null,
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateParcel test-api",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"parcel_id\", pm.response.json().id);"
+						],
+						"type": "text/javascript",
+						"id": "9f627837-3efd-4510-b30e-87cd3b6e88db"
+					}
+				}
+			],
+			"id": "534415e3-43f6-4ea4-a98a-cdfd8385d6fc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "Application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"customer_reference\":\"{{$randomAbbreviation}}\", \n\t\"receiver_phone\":\"7999999999\", \n\t\"receiver_email\":\"{{$randomEmail}}\", \n\t\"size\":\"B\", \n\t\"target_machine_id\":\"UKABE12705\",\n\t\"service_type\":\"2DAY\",\n\t\"weight\":\"{{$randomPrice}}\" \n}\n"
+				},
+				"url": {
+					"raw": "https://test-api-uk.easypack24.net/v4/customers/info@metapack.com/parcels?additional1=MetaPack",
+					"protocol": "https",
+					"host": [
+						"test-api-uk",
+						"easypack24",
+						"net"
+					],
+					"path": [
+						"v4",
+						"customers",
+						"info@metapack.com",
+						"parcels"
+					],
+					"query": [
+						{
+							"key": "additional1",
+							"value": "MetaPack"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateParcel_mock",
+			"id": "f6733491-efe7-411e-983d-9fc6cfdaf6fc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "Application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"customer_reference\":\"test\", \n\t\"receiver_phone\":\"7999999999\", \n\t\"receiver_email\":\"receiver@grupainteger.pl\", \n\t\"size\":\"B\", \n\t\"target_machine_id\":\"UKABE12705\",\n\t\"service_type\":\"2DAY\",\n\t\"weight\":\"1500\" \n}\n"
+				},
+				"url": {
+					"raw": "https://localhost:4019/customers/info@metapack.com/parcels?additional1=Metapack",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "4019",
+					"path": [
+						"customers",
+						"info@metapack.com",
+						"parcels"
+					],
+					"query": [
+						{
+							"key": "additional1",
+							"value": "Metapack"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PayForParcel_test_api",
+			"id": "9e318854-9610-46fc-9e30-305111090691",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "Application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"customer_reference\":\"test\", \n\t\"receiver_phone\":\"7999999999\", \n\t\"receiver_email\":\"receiver@grupainteger.pl\", \n\t\"size\":\"B\", \n\t\"target_machine_id\":\"UKABE12705\",\n\t\"service_type\":\"2DAY\",\n\t\"weight\":\"1500\" \n}\n"
+				},
+				"url": {
+					"raw": "https://test-api-uk.easypack24.net/v4/parcels/{{parcel_id}}/pay",
+					"protocol": "https",
+					"host": [
+						"test-api-uk",
+						"easypack24",
+						"net"
+					],
+					"path": [
+						"v4",
+						"parcels",
+						"{{parcel_id}}",
+						"pay"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PayForParcel_mock",
+			"id": "3536af74-4e32-4201-877f-8401b9af0e32",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "Application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"customer_reference\":\"test\", \n\t\"receiver_phone\":\"7999999999\", \n\t\"receiver_email\":\"receiver@grupainteger.pl\", \n\t\"size\":\"B\", \n\t\"target_machine_id\":\"UKABE12705\",\n\t\"service_type\":\"2DAY\",\n\t\"weight\":\"1500\" \n}\n"
+				},
+				"url": {
+					"raw": "https://localhost:4019/v4/parcels/{{parcel_id}}/pay",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "4019",
+					"path": [
+						"v4",
+						"parcels",
+						"{{parcel_id}}",
+						"pay"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLabel_test",
+			"id": "c99baccb-fc0c-4a48-8705-06f74c012905",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "Application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"customer_reference\":\"test\", \n\t\"receiver_phone\":\"7999999999\", \n\t\"receiver_email\":\"receiver@grupainteger.pl\", \n\t\"size\":\"B\", \n\t\"target_machine_id\":\"UKABE12705\",\n\t\"service_type\":\"2DAY\",\n\t\"weight\":\"1500\" \n}\n"
+				},
+				"url": {
+					"raw": "https://test-api-uk.easypack24.net/v4/parcels/{{parcel_id}}/sticker?sticker_format=Xml&type=xmlDataSource",
+					"protocol": "https",
+					"host": [
+						"test-api-uk",
+						"easypack24",
+						"net"
+					],
+					"path": [
+						"v4",
+						"parcels",
+						"{{parcel_id}}",
+						"sticker"
+					],
+					"query": [
+						{
+							"key": "sticker_format",
+							"value": "Xml"
+						},
+						{
+							"key": "type",
+							"value": "xmlDataSource"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLabel_test_pdf",
+			"id": "ebf7b86a-2be4-494c-9a0c-0eecc48def79",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "Application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"customer_reference\":\"test\", \n\t\"receiver_phone\":\"7999999999\", \n\t\"receiver_email\":\"receiver@grupainteger.pl\", \n\t\"size\":\"B\", \n\t\"target_machine_id\":\"UKABE12705\",\n\t\"service_type\":\"2DAY\",\n\t\"weight\":\"1500\" \n}\n"
+				},
+				"url": {
+					"raw": "https://test-api-uk.easypack24.net/v4/parcels/{{parcel_id}}/sticker?type=normal",
+					"protocol": "https",
+					"host": [
+						"test-api-uk",
+						"easypack24",
+						"net"
+					],
+					"path": [
+						"v4",
+						"parcels",
+						"{{parcel_id}}",
+						"sticker"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "normal"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLabel_test_zpl",
+			"id": "f901cedc-4505-409b-97ad-da4382e7a3dc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "Application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"customer_reference\":\"test\", \n\t\"receiver_phone\":\"7999999999\", \n\t\"receiver_email\":\"receiver@grupainteger.pl\", \n\t\"size\":\"B\", \n\t\"target_machine_id\":\"UKABE12705\",\n\t\"service_type\":\"2DAY\",\n\t\"weight\":\"1500\" \n}\n"
+				},
+				"url": {
+					"raw": "https://test-api-uk.easypack24.net/v4/parcels/{{parcel_id}}/sticker?format=Zpl",
+					"protocol": "https",
+					"host": [
+						"test-api-uk",
+						"easypack24",
+						"net"
+					],
+					"path": [
+						"v4",
+						"parcels",
+						"{{parcel_id}}",
+						"sticker"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "Zpl"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLabel_mock",
+			"id": "03982fe0-c720-4e2f-ba93-0c0fe83ce453",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "Application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"customer_reference\":\"test\", \n\t\"receiver_phone\":\"7999999999\", \n\t\"receiver_email\":\"receiver@grupainteger.pl\", \n\t\"size\":\"B\", \n\t\"target_machine_id\":\"UKABE12705\",\n\t\"service_type\":\"2DAY\",\n\t\"weight\":\"1500\" \n}\n"
+				},
+				"url": {
+					"raw": "https://localhost:4019/parcels/{{parcel_id}}/sticker?sticker_format=Xml&type=xmlDataSource",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "4019",
+					"path": [
+						"parcels",
+						"{{parcel_id}}",
+						"sticker"
+					],
+					"query": [
+						{
+							"key": "sticker_format",
+							"value": "Xml"
+						},
+						{
+							"key": "type",
+							"value": "xmlDataSource"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMachines_stage",
+			"id": "a58acc7a-2cea-4dd0-b20a-6ba949104c49",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://stage-api-uk.easypack24.net/v4/machines",
+					"protocol": "https",
+					"host": [
+						"stage-api-uk",
+						"easypack24",
+						"net"
+					],
+					"path": [
+						"v4",
+						"machines"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMachines_test",
+			"id": "349cbbe7-e8da-4641-b866-71ff193ece64",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://test-api-uk.easypack24.net/v4/machines",
+					"protocol": "https",
+					"host": [
+						"test-api-uk",
+						"easypack24",
+						"net"
+					],
+					"path": [
+						"v4",
+						"machines"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMachines_prod",
+			"id": "bece5edb-9648-43b5-8822-50031c64c774",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api-uk.easypack24.net/v4/machines",
+					"protocol": "https",
+					"host": [
+						"api-uk",
+						"easypack24",
+						"net"
+					],
+					"path": [
+						"v4",
+						"machines"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMachines_api_v2",
+			"id": "3e3a9267-4fd1-4680-a719-b575c682b2d1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api-uk.easypack24.net/machines?token=8a5a69b4-f05a-4b36-b9f5-a1836a720d38",
+					"protocol": "https",
+					"host": [
+						"api-uk",
+						"easypack24",
+						"net"
+					],
+					"path": [
+						"machines"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "8a5a69b4-f05a-4b36-b9f5-a1836a720d38"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMachines_mock",
+			"id": "3265fd7e-5c90-4843-9b09-bc2a6ac268d4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://192.168.137.1:4019/machines",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"137",
+						"1"
+					],
+					"port": "4019",
+					"path": [
+						"machines"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "d602c551-8d00-4838-b0a9-ae68197d9174"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "e3d8ebb4-b34a-405b-a96f-b4809203d4fd"
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "0f394111-1039-415d-88d3-04a1af48e015",
+			"key": "token",
+			"value": "207554851d67c04e33101fdbe3f170522ab08b2379257f98aed17f47dade32fc"
+		},
+		{
+			"id": "2a099f4b-1bf5-4345-9fe0-aa0fbf7f0e4d",
+			"key": "email",
+			"value": "info@metapack.com"
+		},
+		{
+			"id": "79a60cb7-98c1-484b-a97c-76f87468fb05",
+			"key": "token_new",
+			"value": "b55678abe28acfb9f0b816629e1e01cb79494edaf67926a0c246caf0f3c33206"
+		},
+		{
+			"id": "a9261d2f-f1da-4d7e-b0f3-e2b997d45cf3",
+			"key": "parcel_id",
+			"value": ""
+		}
+	]
+}
