@@ -1,15 +1,15 @@
 {
 	"info": {
-		"_postman_id": "40c65795-0f54-47db-b9db-3c86ccd77ef8",
+		"_postman_id": "8a092453-5634-4657-a6cb-a9839694dae7",
 		"name": "Location Adapter Api spec",
 		"description": "This document defines the api specification that all location adapters must adhere to.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "4104157-40c65795-0f54-47db-b9db-3c86ccd77ef8"
+		"_uid": "4104157-8a092453-5634-4657-a6cb-a9839694dae7"
 	},
 	"item": [
 		{
 			"name": "find nearby locations or by store id",
-			"id": "01fb5305-72d2-48bb-aa67-15447599d7be",
+			"id": "bd550da7-12b4-4e59-abf4-e4bbbe182f1f",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -102,7 +102,7 @@
 			},
 			"response": [
 				{
-					"id": "2414a11d-829a-4d67-8ec9-05cf737ae67c",
+					"id": "68e060dd-c02e-4980-80b7-cf608d513082",
 					"name": "Locations found that matched the request parameters. If no nearby locations are found then an empty array should be returned.",
 					"originalRequest": {
 						"method": "GET",
@@ -194,6 +194,7 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -205,7 +206,7 @@
 					"body": "[\n {\n  \"storeId\": \"myStore\",\n  \"storeName\": \"My Store Name\",\n  \"city\": \"London\",\n  \"postcode\": \"WC1X 8XZ\",\n  \"countryCode\": \"GBR\",\n  \"address\": \"200 Grays Inn Rd\",\n  \"latitude\": 1.23,\n  \"longitude\": 4.56,\n  \"telephoneNumber\": \"020 7843 6720\",\n  \"email\": \"info@metapack.com\",\n  \"locationProviderId\": \"ca57a01f-001c-4bf6-aacb-fd2336888462\",\n  \"locationProviderName\": \"Nice Location Provider\",\n  \"ownStores\": true,\n  \"logoUrl\": \"http://www.logos.com/logo.png\",\n  \"photoUrls\": \"http://www.photos.com/photo1.png,http://www.photos.com/photo2.jpg\",\n  \"hasDisabledAccess\": true,\n  \"description\": \"A nice store where you can buy stuff\",\n  \"id\": \"08a01459-5d50-41ed-a46a-b815b967aa26\",\n  \"openingTimesRules\": {\n   \"openingTimesRules\": [\n    {\n     \"rule\": \"every Monday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"08:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    },\n    {\n     \"rule\": \"every Tuesday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"09:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    }\n   ]\n  },\n  \"tags\": [\n   \"tagOne\",\n   \"tagTwo\"\n  ],\n  \"distance\": {\n   \"value\": 900,\n   \"from\": {\n    \"latitude\": 1.23,\n    \"longitude\": 4.56\n   }\n  },\n  \"street\": \"Gray's Inn Road\",\n  \"province\": \"London\",\n  \"buildingName\": \"Metapack House\",\n  \"houseNumber\": \"200\",\n  \"district\": \"London\",\n  \"supplementaryName\": \"Your friendly options provider\",\n  \"languageCode\": \"en\"\n }\n]"
 				},
 				{
-					"id": "951cef3a-91fd-4206-906c-6147f67587fc",
+					"id": "24e7347c-b4ed-40b7-b552-7d90163bfc3d",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a 5XX error returned from the carrier API.",
 					"originalRequest": {
 						"method": "GET",
@@ -297,6 +298,7 @@
 					"status": "Bad Gateway",
 					"code": 502,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -308,7 +310,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "1199c6c2-cf36-4f74-a11c-85d392beef3f",
+					"id": "d5e9762b-aae8-4b31-a378-8dd5ed8a7bde",
 					"name": "The adapter rejected the request due to the given reason.",
 					"originalRequest": {
 						"method": "GET",
@@ -400,6 +402,7 @@
 					"status": "Bad Request",
 					"code": 400,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -411,7 +414,7 @@
 					"body": "{\n \"message\": \"Invalid Request\",\n \"errors\": [\n  {\n   \"name\": \"lat\",\n   \"location\": \"query\",\n   \"message\": \"specified field is missing\",\n   \"rejectedValue\": \"invalidLatitude\"\n  },\n  {\n   \"name\": \"lat\",\n   \"location\": \"query\",\n   \"message\": \"specified field is missing\",\n   \"rejectedValue\": \"invalidLatitude\"\n  }\n ]\n}"
 				},
 				{
-					"id": "e5277188-131a-462e-aa47-e78951b26f9b",
+					"id": "80dff57b-15d7-4179-90bb-41598a3e8f47",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a problem with the adapter itself, not as a result of the carrier API response.",
 					"originalRequest": {
 						"method": "GET",
@@ -503,6 +506,7 @@
 					"status": "Internal Server Error",
 					"code": 500,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -514,7 +518,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "2bafc6c3-b73d-40f2-b0a9-bf9d6f32a593",
+					"id": "abc0dcd7-d813-4604-a2ae-d62a87976c4e",
 					"name": "No locations found for the given storeId.",
 					"originalRequest": {
 						"method": "GET",
@@ -606,6 +610,7 @@
 					"status": "Not Found",
 					"code": 404,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -620,7 +625,7 @@
 		},
 		{
 			"name": "find nearby locations or by store id Copy",
-			"id": "c8762836-d65a-4ecf-b093-a67c32e8561e",
+			"id": "78cc1ef1-3a7f-4bd4-8a9b-2b60da6b271f",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -713,7 +718,7 @@
 			},
 			"response": [
 				{
-					"id": "bf0be803-3f58-472f-a479-a7dcfdfaab27",
+					"id": "22f9c62c-1da3-4e64-9753-d4de898446e5",
 					"name": "Locations found that matched the request parameters. If no nearby locations are found then an empty array should be returned.",
 					"originalRequest": {
 						"method": "GET",
@@ -805,6 +810,7 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -815,7 +821,7 @@
 					"body": "[\n {\n  \"storeId\": \"myStore\",\n  \"storeName\": \"My Store Name\",\n  \"city\": \"London\",\n  \"postcode\": \"WC1X 8XZ\",\n  \"countryCode\": \"GBR\",\n  \"address\": \"200 Grays Inn Rd\",\n  \"latitude\": 1.23,\n  \"longitude\": 4.56,\n  \"telephoneNumber\": \"020 7843 6720\",\n  \"email\": \"info@metapack.com\",\n  \"locationProviderId\": \"ca57a01f-001c-4bf6-aacb-fd2336888462\",\n  \"locationProviderName\": \"Nice Location Provider\",\n  \"ownStores\": true,\n  \"logoUrl\": \"http://www.logos.com/logo.png\",\n  \"photoUrls\": \"http://www.photos.com/photo1.png,http://www.photos.com/photo2.jpg\",\n  \"hasDisabledAccess\": true,\n  \"description\": \"A nice store where you can buy stuff\",\n  \"id\": \"08a01459-5d50-41ed-a46a-b815b967aa26\",\n  \"openingTimesRules\": {\n   \"openingTimesRules\": [\n    {\n     \"rule\": \"every Monday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"08:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    },\n    {\n     \"rule\": \"every Tuesday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"09:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    }\n   ]\n  },\n  \"tags\": [\n   \"tagOne\",\n   \"tagTwo\"\n  ],\n  \"distance\": {\n   \"value\": 900,\n   \"from\": {\n    \"latitude\": 1.23,\n    \"longitude\": 4.56\n   }\n  },\n  \"street\": \"Gray's Inn Road\",\n  \"province\": \"London\",\n  \"buildingName\": \"Metapack House\",\n  \"houseNumber\": \"200\",\n  \"district\": \"London\",\n  \"supplementaryName\": \"Your friendly options provider\",\n  \"languageCode\": \"en\"\n }\n]"
 				},
 				{
-					"id": "d7ceda35-62b3-46e9-8b84-6a27f9b072f9",
+					"id": "760d7a88-4dd5-49dd-b39b-c7a750ef0e2f",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a 5XX error returned from the carrier API.",
 					"originalRequest": {
 						"method": "GET",
@@ -907,6 +913,7 @@
 					"status": "Bad Gateway",
 					"code": 502,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -917,7 +924,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "af0c4a53-59cc-4c5f-aaba-fb017f4b272f",
+					"id": "442c7e44-37e3-44b5-87b8-02e39c26284f",
 					"name": "The adapter rejected the request due to the given reason.",
 					"originalRequest": {
 						"method": "GET",
@@ -1009,6 +1016,7 @@
 					"status": "Bad Request",
 					"code": 400,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -1019,7 +1027,7 @@
 					"body": "{\n \"message\": \"Invalid Request\",\n \"errors\": [\n  {\n   \"name\": \"lat\",\n   \"location\": \"query\",\n   \"message\": \"specified field is missing\",\n   \"rejectedValue\": \"invalidLatitude\"\n  },\n  {\n   \"name\": \"lat\",\n   \"location\": \"query\",\n   \"message\": \"specified field is missing\",\n   \"rejectedValue\": \"invalidLatitude\"\n  }\n ]\n}"
 				},
 				{
-					"id": "3ee08dda-9c2e-4711-8ba4-029aabb92ba9",
+					"id": "1c07ab1f-4051-40ff-bcc2-6ab528a5d8b2",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a problem with the adapter itself, not as a result of the carrier API response.",
 					"originalRequest": {
 						"method": "GET",
@@ -1111,6 +1119,7 @@
 					"status": "Internal Server Error",
 					"code": 500,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -1121,7 +1130,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "a4708e8e-93f1-4743-a197-22c51f754a34",
+					"id": "52837197-375d-4c5b-a774-a4171a04f27c",
 					"name": "No locations found for the given storeId.",
 					"originalRequest": {
 						"method": "GET",
@@ -1213,6 +1222,7 @@
 					"status": "Not Found",
 					"code": 404,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -1226,7 +1236,7 @@
 		},
 		{
 			"name": "localhost_find nearby locations_lon_lat",
-			"id": "01ffb772-2ae5-489a-b30f-ac5320ddbb9d",
+			"id": "a9a4700b-cba3-4539-ba6e-935e25842ec7",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1319,7 +1329,7 @@
 			},
 			"response": [
 				{
-					"id": "27673ad7-a507-4f14-90c0-aa56d74e863b",
+					"id": "87a5f8d9-8b79-4219-bf31-1f7a7e7087fd",
 					"name": "Locations found that matched the request parameters. If no nearby locations are found then an empty array should be returned.",
 					"originalRequest": {
 						"method": "GET",
@@ -1411,6 +1421,7 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -1422,7 +1433,7 @@
 					"body": "[\n {\n  \"storeId\": \"myStore\",\n  \"storeName\": \"My Store Name\",\n  \"city\": \"London\",\n  \"postcode\": \"WC1X 8XZ\",\n  \"countryCode\": \"GBR\",\n  \"address\": \"200 Grays Inn Rd\",\n  \"latitude\": 1.23,\n  \"longitude\": 4.56,\n  \"telephoneNumber\": \"020 7843 6720\",\n  \"email\": \"info@metapack.com\",\n  \"locationProviderId\": \"ca57a01f-001c-4bf6-aacb-fd2336888462\",\n  \"locationProviderName\": \"Nice Location Provider\",\n  \"ownStores\": true,\n  \"logoUrl\": \"http://www.logos.com/logo.png\",\n  \"photoUrls\": \"http://www.photos.com/photo1.png,http://www.photos.com/photo2.jpg\",\n  \"hasDisabledAccess\": true,\n  \"description\": \"A nice store where you can buy stuff\",\n  \"id\": \"08a01459-5d50-41ed-a46a-b815b967aa26\",\n  \"openingTimesRules\": {\n   \"openingTimesRules\": [\n    {\n     \"rule\": \"every Monday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"08:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    },\n    {\n     \"rule\": \"every Tuesday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"09:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    }\n   ]\n  },\n  \"tags\": [\n   \"tagOne\",\n   \"tagTwo\"\n  ],\n  \"distance\": {\n   \"value\": 900,\n   \"from\": {\n    \"latitude\": 1.23,\n    \"longitude\": 4.56\n   }\n  },\n  \"street\": \"Gray's Inn Road\",\n  \"province\": \"London\",\n  \"buildingName\": \"Metapack House\",\n  \"houseNumber\": \"200\",\n  \"district\": \"London\",\n  \"supplementaryName\": \"Your friendly options provider\",\n  \"languageCode\": \"en\"\n }\n]"
 				},
 				{
-					"id": "45a72857-5c3c-4112-a1a2-ec61968b3f4e",
+					"id": "15a64a0d-2a3a-4698-a1c5-078f4fb0f6cb",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a problem with the adapter itself, not as a result of the carrier API response.",
 					"originalRequest": {
 						"method": "GET",
@@ -1439,7 +1450,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/GetPudoPointsCmt?correlation_id=07f305fc-c371-4b2a-8b8b-0880764c68e4&retailer_id=132ad5c4-08af-4509-bd29-1d79176be33f&location_provider_id=07f305fc-c371-4b2a-8b8b-0880764c68e4&store_id=<string>&country_code=AUT&multi_country=false&radius=1000&min=1&max=20&configurations=<string>&lat=47.5&lon=16",
+							"raw": "{{baseUrl}}/GetPudoPointsCmt?correlation_id=07f305fc-c371-4b2a-8b8b-0880764c68e4&retailer_id=132ad5c4-08af-4509-bd29-1d79176be33f&location_provider_id=07f305fc-c371-4b2a-8b8b-0880764c68e4&country_code=AUT&multi_country=false&radius=1000&min=1&max=20&lat=47.5&lon=16",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -1514,6 +1525,7 @@
 					"status": "Internal Server Error",
 					"code": 500,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -1525,7 +1537,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "e5b85aa7-8671-4bef-86b1-32d17b990ef6",
+					"id": "0ff18578-64c8-4d02-b343-c0cd0255b308",
 					"name": "No locations found for the given storeId.",
 					"originalRequest": {
 						"method": "GET",
@@ -1542,7 +1554,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/GetPudoPointsCmt?correlation_id=07f305fc-c371-4b2a-8b8b-0880764c68e4&retailer_id=132ad5c4-08af-4509-bd29-1d79176be33f&location_provider_id=07f305fc-c371-4b2a-8b8b-0880764c68e4&store_id=<string>&country_code=AUT&multi_country=false&radius=1000&min=1&max=20&configurations=<string>&lat=47.5&lon=16",
+							"raw": "{{baseUrl}}/GetPudoPointsCmt?correlation_id=07f305fc-c371-4b2a-8b8b-0880764c68e4&retailer_id=132ad5c4-08af-4509-bd29-1d79176be33f&location_provider_id=07f305fc-c371-4b2a-8b8b-0880764c68e4&country_code=AUT&multi_country=false&radius=1000&min=1&max=20&lat=47.5&lon=16",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -1617,6 +1629,7 @@
 					"status": "Not Found",
 					"code": 404,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -1628,7 +1641,7 @@
 					"body": "{\n \"message\": \"Location Not Found\",\n \"errors\": [\n  {\n   \"message\": {}\n  },\n  {\n   \"message\": {}\n  }\n ]\n}"
 				},
 				{
-					"id": "bcf719a1-c9b8-4659-9e70-9aa59710783b",
+					"id": "2b289783-3fd5-4d3b-a7f4-31ac26155451",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a 5XX error returned from the carrier API.",
 					"originalRequest": {
 						"method": "GET",
@@ -1645,7 +1658,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/GetPudoPointsCmt?correlation_id=07f305fc-c371-4b2a-8b8b-0880764c68e4&retailer_id=132ad5c4-08af-4509-bd29-1d79176be33f&location_provider_id=07f305fc-c371-4b2a-8b8b-0880764c68e4&store_id=<string>&country_code=AUT&multi_country=false&radius=1000&min=1&max=20&configurations=<string>&lat=47.5&lon=16",
+							"raw": "{{baseUrl}}/GetPudoPointsCmt?correlation_id=07f305fc-c371-4b2a-8b8b-0880764c68e4&retailer_id=132ad5c4-08af-4509-bd29-1d79176be33f&location_provider_id=07f305fc-c371-4b2a-8b8b-0880764c68e4&country_code=AUT&multi_country=false&radius=1000&min=1&max=20&lat=47.5&lon=16",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -1720,6 +1733,7 @@
 					"status": "Bad Gateway",
 					"code": 502,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -1731,7 +1745,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "6e3581ab-e236-4ef6-b880-ad6845c5ce12",
+					"id": "b8caa67b-a9e8-4a4c-9830-ffd6c4896ffd",
 					"name": "The adapter rejected the request due to the given reason.",
 					"originalRequest": {
 						"method": "GET",
@@ -1748,7 +1762,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/GetPudoPointsCmt?correlation_id=07f305fc-c371-4b2a-8b8b-0880764c68e4&retailer_id=132ad5c4-08af-4509-bd29-1d79176be33f&location_provider_id=07f305fc-c371-4b2a-8b8b-0880764c68e4&store_id=<string>&country_code=AUT&multi_country=false&radius=1000&min=1&max=20&configurations=<string>&lat=47.5&lon=16",
+							"raw": "{{baseUrl}}/GetPudoPointsCmt?correlation_id=07f305fc-c371-4b2a-8b8b-0880764c68e4&retailer_id=132ad5c4-08af-4509-bd29-1d79176be33f&location_provider_id=07f305fc-c371-4b2a-8b8b-0880764c68e4&country_code=AUT&multi_country=false&radius=1000&min=1&max=20&lat=47.5&lon=16",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -1823,6 +1837,7 @@
 					"status": "Bad Request",
 					"code": 400,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -1837,7 +1852,7 @@
 		},
 		{
 			"name": "localhost_find nearby locations_lon_lat_cmt",
-			"id": "36d9aa5f-e0c7-4f15-9bd6-974e5f7e01f5",
+			"id": "617980f2-e753-4f8b-a227-66badb0c0217",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1935,7 +1950,7 @@
 			},
 			"response": [
 				{
-					"id": "fff498b6-13a7-45ee-b9e0-40b711823d78",
+					"id": "baa400a2-cad5-4ba8-9675-9df091863835",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a problem with the adapter itself, not as a result of the carrier API response.",
 					"originalRequest": {
 						"method": "GET",
@@ -2032,6 +2047,7 @@
 					"status": "Internal Server Error",
 					"code": 500,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -2043,7 +2059,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "a806b04c-15d8-4b18-8029-4cc37991938f",
+					"id": "afdba5a6-929c-45bc-b97c-ac7024f2ace0",
 					"name": "No locations found for the given storeId.",
 					"originalRequest": {
 						"method": "GET",
@@ -2060,7 +2076,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8088/GetPudoPointsCmt?correlation_id=<string>&retailer_id=<string>&location_provider_id=<string>&store_id=<string>&country_code=BEL&multi_country=false&radius=2000&min=1&max=20&configurations=<string>&lat=50,9645507&lon=5,49097202",
+							"raw": "http://localhost:8088/GetPudoPointsCmt?country_code=BEL&multi_country=false&radius=2000&min=1&max=20&lat=50,9645507&lon=5,49097202",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2140,6 +2156,7 @@
 					"status": "Not Found",
 					"code": 404,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -2151,7 +2168,7 @@
 					"body": "{\n \"message\": \"Location Not Found\",\n \"errors\": [\n  {\n   \"message\": {}\n  },\n  {\n   \"message\": {}\n  }\n ]\n}"
 				},
 				{
-					"id": "5ae5ba0b-4b99-4505-89f7-8fd2085c34b3",
+					"id": "3cff1c5a-6769-4c71-98c5-45053dc15a28",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a 5XX error returned from the carrier API.",
 					"originalRequest": {
 						"method": "GET",
@@ -2168,7 +2185,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8088/GetPudoPointsCmt?correlation_id=<string>&retailer_id=<string>&location_provider_id=<string>&store_id=<string>&country_code=BEL&multi_country=false&radius=2000&min=1&max=20&configurations=<string>&lat=50,9645507&lon=5,49097202",
+							"raw": "http://localhost:8088/GetPudoPointsCmt?country_code=BEL&multi_country=false&radius=2000&min=1&max=20&lat=50,9645507&lon=5,49097202",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2248,6 +2265,7 @@
 					"status": "Bad Gateway",
 					"code": 502,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -2259,7 +2277,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "1c894537-4036-4c46-b30d-f8ede17fab25",
+					"id": "a209f488-3751-4b9e-bfa1-9da431172efd",
 					"name": "Locations found that matched the request parameters. If no nearby locations are found then an empty array should be returned.",
 					"originalRequest": {
 						"method": "GET",
@@ -2276,7 +2294,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8088/GetPudoPointsCmt?correlation_id=<string>&retailer_id=<string>&location_provider_id=<string>&store_id=<string>&country_code=BEL&multi_country=false&radius=2000&min=1&max=20&configurations=<string>&lat=50,9645507&lon=5,49097202",
+							"raw": "http://localhost:8088/GetPudoPointsCmt?country_code=BEL&multi_country=false&radius=2000&min=1&max=20&lat=50,9645507&lon=5,49097202",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2356,6 +2374,7 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -2367,7 +2386,7 @@
 					"body": "[\n {\n  \"storeId\": \"myStore\",\n  \"storeName\": \"My Store Name\",\n  \"city\": \"London\",\n  \"postcode\": \"WC1X 8XZ\",\n  \"countryCode\": \"GBR\",\n  \"address\": \"200 Grays Inn Rd\",\n  \"latitude\": 1.23,\n  \"longitude\": 4.56,\n  \"telephoneNumber\": \"020 7843 6720\",\n  \"email\": \"info@metapack.com\",\n  \"locationProviderId\": \"ca57a01f-001c-4bf6-aacb-fd2336888462\",\n  \"locationProviderName\": \"Nice Location Provider\",\n  \"ownStores\": true,\n  \"logoUrl\": \"http://www.logos.com/logo.png\",\n  \"photoUrls\": \"http://www.photos.com/photo1.png,http://www.photos.com/photo2.jpg\",\n  \"hasDisabledAccess\": true,\n  \"description\": \"A nice store where you can buy stuff\",\n  \"id\": \"08a01459-5d50-41ed-a46a-b815b967aa26\",\n  \"openingTimesRules\": {\n   \"openingTimesRules\": [\n    {\n     \"rule\": \"every Monday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"08:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    },\n    {\n     \"rule\": \"every Tuesday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"09:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    }\n   ]\n  },\n  \"tags\": [\n   \"tagOne\",\n   \"tagTwo\"\n  ],\n  \"distance\": {\n   \"value\": 900,\n   \"from\": {\n    \"latitude\": 1.23,\n    \"longitude\": 4.56\n   }\n  },\n  \"street\": \"Gray's Inn Road\",\n  \"province\": \"London\",\n  \"buildingName\": \"Metapack House\",\n  \"houseNumber\": \"200\",\n  \"district\": \"London\",\n  \"supplementaryName\": \"Your friendly options provider\",\n  \"languageCode\": \"en\"\n }\n]"
 				},
 				{
-					"id": "f0cf81df-8c51-4f0e-b75a-f05d06b24277",
+					"id": "4c8acaf8-82bc-4bb8-a909-06c7f31c21de",
 					"name": "The adapter rejected the request due to the given reason.",
 					"originalRequest": {
 						"method": "GET",
@@ -2384,7 +2403,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8088/GetPudoPointsCmt?correlation_id=<string>&retailer_id=<string>&location_provider_id=<string>&store_id=<string>&country_code=BEL&multi_country=false&radius=2000&min=1&max=20&configurations=<string>&lat=50,9645507&lon=5,49097202",
+							"raw": "http://localhost:8088/GetPudoPointsCmt?country_code=BEL&multi_country=false&radius=2000&min=1&max=20&lat=50,9645507&lon=5,49097202",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -2464,6 +2483,7 @@
 					"status": "Bad Request",
 					"code": 400,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -2478,7 +2498,7 @@
 		},
 		{
 			"name": "localhost_find nearby locations_lona_lat_MAD",
-			"id": "7d127559-527c-4a5e-8a35-2f11df7bf829",
+			"id": "9c766fd1-9cf9-454c-9b62-1ebd7bab2072",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -2551,7 +2571,7 @@
 			},
 			"response": [
 				{
-					"id": "cb968fd5-1d20-4a9a-84b0-22ff15f413e2",
+					"id": "744f8e46-a046-4c5a-9003-5f4d7519a9b4",
 					"name": "No locations found for the given storeId.",
 					"originalRequest": {
 						"method": "GET",
@@ -2623,6 +2643,7 @@
 					"status": "Not Found",
 					"code": 404,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -2634,7 +2655,7 @@
 					"body": "{\n \"message\": \"Location Not Found\",\n \"errors\": [\n  {\n   \"message\": {}\n  },\n  {\n   \"message\": {}\n  }\n ]\n}"
 				},
 				{
-					"id": "f6fb40ad-e4ac-49e6-bad4-5a0e4901485b",
+					"id": "40d87d1a-2321-4a1e-b001-70fe2c14d3db",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a problem with the adapter itself, not as a result of the carrier API response.",
 					"originalRequest": {
 						"method": "GET",
@@ -2706,6 +2727,7 @@
 					"status": "Internal Server Error",
 					"code": 500,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -2717,7 +2739,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "7e94bab9-92ba-4d76-b13f-05cdf8067736",
+					"id": "5ce63fd1-4a06-4b9b-a67b-e64cb1ac097e",
 					"name": "Locations found that matched the request parameters. If no nearby locations are found then an empty array should be returned.",
 					"originalRequest": {
 						"method": "GET",
@@ -2789,6 +2811,7 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -2800,7 +2823,7 @@
 					"body": "[\n {\n  \"storeId\": \"myStore\",\n  \"storeName\": \"My Store Name\",\n  \"city\": \"London\",\n  \"postcode\": \"WC1X 8XZ\",\n  \"countryCode\": \"GBR\",\n  \"address\": \"200 Grays Inn Rd\",\n  \"latitude\": 1.23,\n  \"longitude\": 4.56,\n  \"telephoneNumber\": \"020 7843 6720\",\n  \"email\": \"info@metapack.com\",\n  \"locationProviderId\": \"ca57a01f-001c-4bf6-aacb-fd2336888462\",\n  \"locationProviderName\": \"Nice Location Provider\",\n  \"ownStores\": true,\n  \"logoUrl\": \"http://www.logos.com/logo.png\",\n  \"photoUrls\": \"http://www.photos.com/photo1.png,http://www.photos.com/photo2.jpg\",\n  \"hasDisabledAccess\": true,\n  \"description\": \"A nice store where you can buy stuff\",\n  \"id\": \"08a01459-5d50-41ed-a46a-b815b967aa26\",\n  \"openingTimesRules\": {\n   \"openingTimesRules\": [\n    {\n     \"rule\": \"every Monday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"08:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    },\n    {\n     \"rule\": \"every Tuesday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"09:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    }\n   ]\n  },\n  \"tags\": [\n   \"tagOne\",\n   \"tagTwo\"\n  ],\n  \"distance\": {\n   \"value\": 900,\n   \"from\": {\n    \"latitude\": 1.23,\n    \"longitude\": 4.56\n   }\n  },\n  \"street\": \"Gray's Inn Road\",\n  \"province\": \"London\",\n  \"buildingName\": \"Metapack House\",\n  \"houseNumber\": \"200\",\n  \"district\": \"London\",\n  \"supplementaryName\": \"Your friendly options provider\",\n  \"languageCode\": \"en\"\n }\n]"
 				},
 				{
-					"id": "136e1fd9-0369-4687-a6bb-31d11f9fe72b",
+					"id": "26c6b165-01db-42c5-b322-5974bd2b3d43",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a 5XX error returned from the carrier API.",
 					"originalRequest": {
 						"method": "GET",
@@ -2872,6 +2895,7 @@
 					"status": "Bad Gateway",
 					"code": 502,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -2883,7 +2907,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "83cc8152-512b-4a75-8681-b129a5019af0",
+					"id": "f3cb4b48-e001-43cf-9767-bb11dc01f131",
 					"name": "The adapter rejected the request due to the given reason.",
 					"originalRequest": {
 						"method": "GET",
@@ -2955,6 +2979,7 @@
 					"status": "Bad Request",
 					"code": 400,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -2969,7 +2994,7 @@
 		},
 		{
 			"name": "localhost_find nearby locations_no_lon_no_lat",
-			"id": "dd315209-038c-4bd7-aa9c-59fce1730e75",
+			"id": "7f08226f-4940-4f53-bcbe-e192a732b2cc",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -3044,7 +3069,7 @@
 			},
 			"response": [
 				{
-					"id": "ded8f7e0-b31b-45b9-9ef6-d6a47584732b",
+					"id": "15054a4d-6be9-4181-bb11-846b5d844a36",
 					"name": "No locations found for the given storeId.",
 					"originalRequest": {
 						"method": "GET",
@@ -3118,6 +3143,7 @@
 					"status": "Not Found",
 					"code": 404,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -3129,7 +3155,7 @@
 					"body": "{\n \"message\": \"Location Not Found\",\n \"errors\": [\n  {\n   \"message\": {}\n  },\n  {\n   \"message\": {}\n  }\n ]\n}"
 				},
 				{
-					"id": "988a6fd9-63c4-4fc2-894e-50650cd3ccaf",
+					"id": "e92d6db6-2709-4a0b-b883-0bad2aacf8f5",
 					"name": "Locations found that matched the request parameters. If no nearby locations are found then an empty array should be returned.",
 					"originalRequest": {
 						"method": "GET",
@@ -3203,6 +3229,7 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -3214,7 +3241,7 @@
 					"body": "[\n {\n  \"storeId\": \"myStore\",\n  \"storeName\": \"My Store Name\",\n  \"city\": \"London\",\n  \"postcode\": \"WC1X 8XZ\",\n  \"countryCode\": \"GBR\",\n  \"address\": \"200 Grays Inn Rd\",\n  \"latitude\": 1.23,\n  \"longitude\": 4.56,\n  \"telephoneNumber\": \"020 7843 6720\",\n  \"email\": \"info@metapack.com\",\n  \"locationProviderId\": \"ca57a01f-001c-4bf6-aacb-fd2336888462\",\n  \"locationProviderName\": \"Nice Location Provider\",\n  \"ownStores\": true,\n  \"logoUrl\": \"http://www.logos.com/logo.png\",\n  \"photoUrls\": \"http://www.photos.com/photo1.png,http://www.photos.com/photo2.jpg\",\n  \"hasDisabledAccess\": true,\n  \"description\": \"A nice store where you can buy stuff\",\n  \"id\": \"08a01459-5d50-41ed-a46a-b815b967aa26\",\n  \"openingTimesRules\": {\n   \"openingTimesRules\": [\n    {\n     \"rule\": \"every Monday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"08:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    },\n    {\n     \"rule\": \"every Tuesday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"09:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    }\n   ]\n  },\n  \"tags\": [\n   \"tagOne\",\n   \"tagTwo\"\n  ],\n  \"distance\": {\n   \"value\": 900,\n   \"from\": {\n    \"latitude\": 1.23,\n    \"longitude\": 4.56\n   }\n  },\n  \"street\": \"Gray's Inn Road\",\n  \"province\": \"London\",\n  \"buildingName\": \"Metapack House\",\n  \"houseNumber\": \"200\",\n  \"district\": \"London\",\n  \"supplementaryName\": \"Your friendly options provider\",\n  \"languageCode\": \"en\"\n }\n]"
 				},
 				{
-					"id": "9843bb6e-728f-440c-8ba5-e2648ff6dda8",
+					"id": "831191a4-2c54-46c6-8f90-f91137d224b4",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a problem with the adapter itself, not as a result of the carrier API response.",
 					"originalRequest": {
 						"method": "GET",
@@ -3288,6 +3315,7 @@
 					"status": "Internal Server Error",
 					"code": 500,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -3299,7 +3327,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "25927879-ce7a-417d-955e-03f1b061ace0",
+					"id": "7dbbb60b-d70c-4731-aac3-8127047c55ef",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a 5XX error returned from the carrier API.",
 					"originalRequest": {
 						"method": "GET",
@@ -3373,6 +3401,7 @@
 					"status": "Bad Gateway",
 					"code": 502,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -3384,7 +3413,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "54dcf046-5dae-44f2-8ed2-9dffcb9e90ca",
+					"id": "18053625-f2ff-4e95-9b58-113b85a2878d",
 					"name": "The adapter rejected the request due to the given reason.",
 					"originalRequest": {
 						"method": "GET",
@@ -3458,6 +3487,7 @@
 					"status": "Bad Request",
 					"code": 400,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -3472,7 +3502,7 @@
 		},
 		{
 			"name": "localhost_find nearby locations_lona_lat_MAD_AT",
-			"id": "bfff687d-8e27-4ce0-ac17-1025a1117288",
+			"id": "60296dd0-938a-4e97-a454-01b5e7b624bf",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -3545,7 +3575,7 @@
 			},
 			"response": [
 				{
-					"id": "99a05f7f-8d83-47fe-ab0e-79d2240db3f3",
+					"id": "ab77da01-46ed-4fa2-a5d5-7b8f2b40c2dd",
 					"name": "No locations found for the given storeId.",
 					"originalRequest": {
 						"method": "GET",
@@ -3617,6 +3647,7 @@
 					"status": "Not Found",
 					"code": 404,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -3628,7 +3659,7 @@
 					"body": "{\n \"message\": \"Location Not Found\",\n \"errors\": [\n  {\n   \"message\": {}\n  },\n  {\n   \"message\": {}\n  }\n ]\n}"
 				},
 				{
-					"id": "788748ee-6eb3-43bd-bf2f-6708909959c3",
+					"id": "87f0c2fc-b703-4bac-9d35-4243eb16c15c",
 					"name": "Locations found that matched the request parameters. If no nearby locations are found then an empty array should be returned.",
 					"originalRequest": {
 						"method": "GET",
@@ -3700,6 +3731,7 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -3711,7 +3743,7 @@
 					"body": "[\n {\n  \"storeId\": \"myStore\",\n  \"storeName\": \"My Store Name\",\n  \"city\": \"London\",\n  \"postcode\": \"WC1X 8XZ\",\n  \"countryCode\": \"GBR\",\n  \"address\": \"200 Grays Inn Rd\",\n  \"latitude\": 1.23,\n  \"longitude\": 4.56,\n  \"telephoneNumber\": \"020 7843 6720\",\n  \"email\": \"info@metapack.com\",\n  \"locationProviderId\": \"ca57a01f-001c-4bf6-aacb-fd2336888462\",\n  \"locationProviderName\": \"Nice Location Provider\",\n  \"ownStores\": true,\n  \"logoUrl\": \"http://www.logos.com/logo.png\",\n  \"photoUrls\": \"http://www.photos.com/photo1.png,http://www.photos.com/photo2.jpg\",\n  \"hasDisabledAccess\": true,\n  \"description\": \"A nice store where you can buy stuff\",\n  \"id\": \"08a01459-5d50-41ed-a46a-b815b967aa26\",\n  \"openingTimesRules\": {\n   \"openingTimesRules\": [\n    {\n     \"rule\": \"every Monday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"08:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    },\n    {\n     \"rule\": \"every Tuesday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"09:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    }\n   ]\n  },\n  \"tags\": [\n   \"tagOne\",\n   \"tagTwo\"\n  ],\n  \"distance\": {\n   \"value\": 900,\n   \"from\": {\n    \"latitude\": 1.23,\n    \"longitude\": 4.56\n   }\n  },\n  \"street\": \"Gray's Inn Road\",\n  \"province\": \"London\",\n  \"buildingName\": \"Metapack House\",\n  \"houseNumber\": \"200\",\n  \"district\": \"London\",\n  \"supplementaryName\": \"Your friendly options provider\",\n  \"languageCode\": \"en\"\n }\n]"
 				},
 				{
-					"id": "8d8b9e84-d479-4ca2-978b-05a9fdc3d3a4",
+					"id": "6a6e1e04-1ebc-41a2-9c5f-f9d9fc1f4d38",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a 5XX error returned from the carrier API.",
 					"originalRequest": {
 						"method": "GET",
@@ -3783,6 +3815,7 @@
 					"status": "Bad Gateway",
 					"code": 502,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -3794,7 +3827,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "7fddd832-4fcc-46bc-a9a1-580b5eeca975",
+					"id": "f7491c96-f19e-45a8-82a0-666b73ef23ac",
 					"name": "The adapter rejected the request due to the given reason.",
 					"originalRequest": {
 						"method": "GET",
@@ -3866,6 +3899,7 @@
 					"status": "Bad Request",
 					"code": 400,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -3877,7 +3911,7 @@
 					"body": "{\n \"message\": \"Invalid Request\",\n \"errors\": [\n  {\n   \"name\": \"lat\",\n   \"location\": \"query\",\n   \"message\": \"specified field is missing\",\n   \"rejectedValue\": \"invalidLatitude\"\n  },\n  {\n   \"name\": \"lat\",\n   \"location\": \"query\",\n   \"message\": \"specified field is missing\",\n   \"rejectedValue\": \"invalidLatitude\"\n  }\n ]\n}"
 				},
 				{
-					"id": "d91f43fe-e134-4849-a8ce-6be4c47e82b4",
+					"id": "74a44731-ecb5-4fbe-af88-24cc90ad4b8c",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a problem with the adapter itself, not as a result of the carrier API response.",
 					"originalRequest": {
 						"method": "GET",
@@ -3949,6 +3983,7 @@
 					"status": "Internal Server Error",
 					"code": 500,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -3963,7 +3998,7 @@
 		},
 		{
 			"name": "localhost_find nearby locations_lona_lat_MAD_lon_lat_store_id",
-			"id": "97f1e3e6-4d2f-433b-b5f3-dec20a80c491",
+			"id": "a507f560-7ed1-403f-a9ed-fdd6c0bf4be0",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -4029,7 +4064,7 @@
 			},
 			"response": [
 				{
-					"id": "8650768c-904d-4b4a-901e-ea70c3ef32ca",
+					"id": "35518cb0-57f9-4f2c-a7fe-4f6b326d235e",
 					"name": "The adapter rejected the request due to the given reason.",
 					"originalRequest": {
 						"method": "GET",
@@ -4094,6 +4129,7 @@
 					"status": "Bad Request",
 					"code": 400,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -4105,7 +4141,7 @@
 					"body": "{\n \"message\": \"Invalid Request\",\n \"errors\": [\n  {\n   \"name\": \"lat\",\n   \"location\": \"query\",\n   \"message\": \"specified field is missing\",\n   \"rejectedValue\": \"invalidLatitude\"\n  },\n  {\n   \"name\": \"lat\",\n   \"location\": \"query\",\n   \"message\": \"specified field is missing\",\n   \"rejectedValue\": \"invalidLatitude\"\n  }\n ]\n}"
 				},
 				{
-					"id": "93eb14fd-79f1-43c3-93b6-329392b892ef",
+					"id": "e306ed12-9929-4072-8a9a-7ab2f746572d",
 					"name": "Locations found that matched the request parameters. If no nearby locations are found then an empty array should be returned.",
 					"originalRequest": {
 						"method": "GET",
@@ -4170,6 +4206,7 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -4181,7 +4218,7 @@
 					"body": "[\n {\n  \"storeId\": \"myStore\",\n  \"storeName\": \"My Store Name\",\n  \"city\": \"London\",\n  \"postcode\": \"WC1X 8XZ\",\n  \"countryCode\": \"GBR\",\n  \"address\": \"200 Grays Inn Rd\",\n  \"latitude\": 1.23,\n  \"longitude\": 4.56,\n  \"telephoneNumber\": \"020 7843 6720\",\n  \"email\": \"info@metapack.com\",\n  \"locationProviderId\": \"ca57a01f-001c-4bf6-aacb-fd2336888462\",\n  \"locationProviderName\": \"Nice Location Provider\",\n  \"ownStores\": true,\n  \"logoUrl\": \"http://www.logos.com/logo.png\",\n  \"photoUrls\": \"http://www.photos.com/photo1.png,http://www.photos.com/photo2.jpg\",\n  \"hasDisabledAccess\": true,\n  \"description\": \"A nice store where you can buy stuff\",\n  \"id\": \"08a01459-5d50-41ed-a46a-b815b967aa26\",\n  \"openingTimesRules\": {\n   \"openingTimesRules\": [\n    {\n     \"rule\": \"every Monday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"08:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    },\n    {\n     \"rule\": \"every Tuesday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"09:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    }\n   ]\n  },\n  \"tags\": [\n   \"tagOne\",\n   \"tagTwo\"\n  ],\n  \"distance\": {\n   \"value\": 900,\n   \"from\": {\n    \"latitude\": 1.23,\n    \"longitude\": 4.56\n   }\n  },\n  \"street\": \"Gray's Inn Road\",\n  \"province\": \"London\",\n  \"buildingName\": \"Metapack House\",\n  \"houseNumber\": \"200\",\n  \"district\": \"London\",\n  \"supplementaryName\": \"Your friendly options provider\",\n  \"languageCode\": \"en\"\n }\n]"
 				},
 				{
-					"id": "da478694-f23c-42b1-9612-5614e9d02668",
+					"id": "da433424-85a0-4c57-a760-cbf218aae2f0",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a 5XX error returned from the carrier API.",
 					"originalRequest": {
 						"method": "GET",
@@ -4246,6 +4283,7 @@
 					"status": "Bad Gateway",
 					"code": 502,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -4257,7 +4295,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "196123b0-2635-4f68-892d-7bd2bb01408b",
+					"id": "ce5429d2-b70d-489d-a5e5-0c2208180269",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a problem with the adapter itself, not as a result of the carrier API response.",
 					"originalRequest": {
 						"method": "GET",
@@ -4322,6 +4360,7 @@
 					"status": "Internal Server Error",
 					"code": 500,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -4333,7 +4372,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "92a306cb-0e40-4344-9c67-eb95b9fa21b5",
+					"id": "bf1d7e0c-db16-4b1c-a67d-eee076040a5e",
 					"name": "No locations found for the given storeId.",
 					"originalRequest": {
 						"method": "GET",
@@ -4398,6 +4437,7 @@
 					"status": "Not Found",
 					"code": 404,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -4412,7 +4452,7 @@
 		},
 		{
 			"name": "localhost_find nearby locations_lona_lat_MAD_store_id",
-			"id": "bbf18bc1-b581-4a0c-984a-ceced94e47c9",
+			"id": "ef0a4409-51c0-48c6-82cf-63b69ec064ec",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -4483,7 +4523,7 @@
 			},
 			"response": [
 				{
-					"id": "af189b08-8c4e-477f-b0b3-fe751c93ff0f",
+					"id": "3caa0c07-7153-4a58-8678-909f1e1f0d73",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a problem with the adapter itself, not as a result of the carrier API response.",
 					"originalRequest": {
 						"method": "GET",
@@ -4553,6 +4593,7 @@
 					"status": "Internal Server Error",
 					"code": 500,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -4564,7 +4605,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "e614acba-7fd0-4fc2-ac9a-89aa087bb2e9",
+					"id": "723af3ea-e20b-4520-8ab3-42638f20b13d",
 					"name": "No locations found for the given storeId.",
 					"originalRequest": {
 						"method": "GET",
@@ -4634,6 +4675,7 @@
 					"status": "Not Found",
 					"code": 404,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -4645,7 +4687,7 @@
 					"body": "{\n \"message\": \"Location Not Found\",\n \"errors\": [\n  {\n   \"message\": {}\n  },\n  {\n   \"message\": {}\n  }\n ]\n}"
 				},
 				{
-					"id": "0548013e-b54f-4c79-a6bc-1394a847c31d",
+					"id": "345e2ec3-700b-4583-b743-00d78ea0939a",
 					"name": "Locations found that matched the request parameters. If no nearby locations are found then an empty array should be returned.",
 					"originalRequest": {
 						"method": "GET",
@@ -4715,6 +4757,7 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -4726,7 +4769,7 @@
 					"body": "[\n {\n  \"storeId\": \"myStore\",\n  \"storeName\": \"My Store Name\",\n  \"city\": \"London\",\n  \"postcode\": \"WC1X 8XZ\",\n  \"countryCode\": \"GBR\",\n  \"address\": \"200 Grays Inn Rd\",\n  \"latitude\": 1.23,\n  \"longitude\": 4.56,\n  \"telephoneNumber\": \"020 7843 6720\",\n  \"email\": \"info@metapack.com\",\n  \"locationProviderId\": \"ca57a01f-001c-4bf6-aacb-fd2336888462\",\n  \"locationProviderName\": \"Nice Location Provider\",\n  \"ownStores\": true,\n  \"logoUrl\": \"http://www.logos.com/logo.png\",\n  \"photoUrls\": \"http://www.photos.com/photo1.png,http://www.photos.com/photo2.jpg\",\n  \"hasDisabledAccess\": true,\n  \"description\": \"A nice store where you can buy stuff\",\n  \"id\": \"08a01459-5d50-41ed-a46a-b815b967aa26\",\n  \"openingTimesRules\": {\n   \"openingTimesRules\": [\n    {\n     \"rule\": \"every Monday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"08:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    },\n    {\n     \"rule\": \"every Tuesday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"09:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    }\n   ]\n  },\n  \"tags\": [\n   \"tagOne\",\n   \"tagTwo\"\n  ],\n  \"distance\": {\n   \"value\": 900,\n   \"from\": {\n    \"latitude\": 1.23,\n    \"longitude\": 4.56\n   }\n  },\n  \"street\": \"Gray's Inn Road\",\n  \"province\": \"London\",\n  \"buildingName\": \"Metapack House\",\n  \"houseNumber\": \"200\",\n  \"district\": \"London\",\n  \"supplementaryName\": \"Your friendly options provider\",\n  \"languageCode\": \"en\"\n }\n]"
 				},
 				{
-					"id": "74cc6da2-1122-43c4-a201-9a0aeb4b01d0",
+					"id": "1763367b-d4a7-489a-abb5-dd48cf44f3e4",
 					"name": "The adapter rejected the request due to the given reason.",
 					"originalRequest": {
 						"method": "GET",
@@ -4796,6 +4839,7 @@
 					"status": "Bad Request",
 					"code": 400,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -4807,7 +4851,7 @@
 					"body": "{\n \"message\": \"Invalid Request\",\n \"errors\": [\n  {\n   \"name\": \"lat\",\n   \"location\": \"query\",\n   \"message\": \"specified field is missing\",\n   \"rejectedValue\": \"invalidLatitude\"\n  },\n  {\n   \"name\": \"lat\",\n   \"location\": \"query\",\n   \"message\": \"specified field is missing\",\n   \"rejectedValue\": \"invalidLatitude\"\n  }\n ]\n}"
 				},
 				{
-					"id": "f9a3a65b-7359-48bd-abd8-9fabbf4e2e21",
+					"id": "f0bba7ad-848a-4bf5-bbe3-10937ffbce2f",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a 5XX error returned from the carrier API.",
 					"originalRequest": {
 						"method": "GET",
@@ -4877,6 +4921,7 @@
 					"status": "Bad Gateway",
 					"code": 502,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -4895,7 +4940,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "56857ddb-4898-416d-baff-9385d5dde565",
+						"id": "f4df59dc-f97a-45bf-99b6-6f247464db6c",
 						"exec": [
 							"const responseJson = pm.response.json();\r",
 							"var newFormat =   {\r",
@@ -4937,7 +4982,7 @@
 					}
 				}
 			],
-			"id": "28b5baf4-9cb1-46ed-afa0-c7b4ee761a75",
+			"id": "698d3b6c-12a2-47f6-9534-b074efd355ba",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -5003,7 +5048,7 @@
 			},
 			"response": [
 				{
-					"id": "5463081b-b212-4dde-b83e-1a4d93b8b0d4",
+					"id": "17e7d2ba-1527-4e2a-b21d-f45686310aa3",
 					"name": "The adapter rejected the request due to the given reason.",
 					"originalRequest": {
 						"method": "GET",
@@ -5068,6 +5113,7 @@
 					"status": "Bad Request",
 					"code": 400,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -5079,7 +5125,7 @@
 					"body": "{\n \"message\": \"Invalid Request\",\n \"errors\": [\n  {\n   \"name\": \"lat\",\n   \"location\": \"query\",\n   \"message\": \"specified field is missing\",\n   \"rejectedValue\": \"invalidLatitude\"\n  },\n  {\n   \"name\": \"lat\",\n   \"location\": \"query\",\n   \"message\": \"specified field is missing\",\n   \"rejectedValue\": \"invalidLatitude\"\n  }\n ]\n}"
 				},
 				{
-					"id": "b902c873-c1f7-4b3a-aede-ae918e761b9a",
+					"id": "8b31ce95-9d18-40f7-a120-1f36157210b2",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a problem with the adapter itself, not as a result of the carrier API response.",
 					"originalRequest": {
 						"method": "GET",
@@ -5096,7 +5142,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/GetPudoPointsCmt?correlation_id=bbd957c1-350e-44a9-ac63-c48b7ac41972&retailer_id=132ad5c4-08af-4509-bd29-1d79176be33f&location_provider_id=location_provider_id&store_id=050549&multi_country=false&min=1&max=10&country_code=AUT",
+							"raw": "{{baseUrl}}/GetPudoPointsCmt?retailer_id=132ad5c4-08af-4509-bd29-1d79176be33f&location_provider_id=location_provider_id&store_id=050549&multi_country=false&min=1&max=10&country_code=AUT",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -5144,6 +5190,7 @@
 					"status": "Internal Server Error",
 					"code": 500,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -5155,7 +5202,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "a8ce08eb-f6d6-4b68-8570-103e44c2f6bd",
+					"id": "4fb8a65a-f082-4d2d-83fe-932bc2789ceb",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a 5XX error returned from the carrier API.",
 					"originalRequest": {
 						"method": "GET",
@@ -5172,7 +5219,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/GetPudoPointsCmt?correlation_id=bbd957c1-350e-44a9-ac63-c48b7ac41972&retailer_id=132ad5c4-08af-4509-bd29-1d79176be33f&location_provider_id=location_provider_id&store_id=050549&multi_country=false&min=1&max=10&country_code=AUT",
+							"raw": "{{baseUrl}}/GetPudoPointsCmt?retailer_id=132ad5c4-08af-4509-bd29-1d79176be33f&location_provider_id=location_provider_id&store_id=050549&multi_country=false&min=1&max=10&country_code=AUT",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -5220,6 +5267,7 @@
 					"status": "Bad Gateway",
 					"code": 502,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -5231,7 +5279,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "bf3dfa18-ebe6-4c61-bd1d-2fa09d73b749",
+					"id": "3b2de820-5ce5-426d-a521-8f0aeac6e72f",
 					"name": "No locations found for the given storeId.",
 					"originalRequest": {
 						"method": "GET",
@@ -5248,7 +5296,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/GetPudoPointsCmt?correlation_id=bbd957c1-350e-44a9-ac63-c48b7ac41972&retailer_id=132ad5c4-08af-4509-bd29-1d79176be33f&location_provider_id=location_provider_id&store_id=050549&multi_country=false&min=1&max=10&country_code=AUT",
+							"raw": "{{baseUrl}}/GetPudoPointsCmt?retailer_id=132ad5c4-08af-4509-bd29-1d79176be33f&location_provider_id=location_provider_id&store_id=050549&multi_country=false&min=1&max=10&country_code=AUT",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -5296,6 +5344,7 @@
 					"status": "Not Found",
 					"code": 404,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -5307,7 +5356,7 @@
 					"body": "{\n \"message\": \"Location Not Found\",\n \"errors\": [\n  {\n   \"message\": {}\n  },\n  {\n   \"message\": {}\n  }\n ]\n}"
 				},
 				{
-					"id": "c318ce3d-02c6-4b93-95a5-aa8438db29c4",
+					"id": "7ade5978-eeea-42ed-87f3-957dbad6eaeb",
 					"name": "Locations found that matched the request parameters. If no nearby locations are found then an empty array should be returned.",
 					"originalRequest": {
 						"method": "GET",
@@ -5324,7 +5373,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/GetPudoPointsCmt?correlation_id=bbd957c1-350e-44a9-ac63-c48b7ac41972&retailer_id=132ad5c4-08af-4509-bd29-1d79176be33f&location_provider_id=location_provider_id&store_id=050549&multi_country=false&min=1&max=10&country_code=AUT",
+							"raw": "{{baseUrl}}/GetPudoPointsCmt?retailer_id=132ad5c4-08af-4509-bd29-1d79176be33f&location_provider_id=location_provider_id&store_id=050549&multi_country=false&min=1&max=10&country_code=AUT",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -5372,6 +5421,7 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -5386,7 +5436,7 @@
 		},
 		{
 			"name": "test",
-			"id": "2be23441-91e6-4be6-8ba1-da14bd18e35a",
+			"id": "d2814950-5cbb-4efb-a211-1fc61c8970c3",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -5419,7 +5469,7 @@
 			},
 			"response": [
 				{
-					"id": "c8ab6f01-09d0-4835-bcdf-810e425f9e8b",
+					"id": "1f572f7a-00d5-4859-ab99-4d7e3fee944a",
 					"name": "No locations found for the given storeId.",
 					"originalRequest": {
 						"method": "GET",
@@ -5451,6 +5501,7 @@
 					"status": "Not Found",
 					"code": 404,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -5462,7 +5513,7 @@
 					"body": "{\n \"message\": \"Location Not Found\",\n \"errors\": [\n  {\n   \"message\": {}\n  },\n  {\n   \"message\": {}\n  }\n ]\n}"
 				},
 				{
-					"id": "2766bc2e-6c61-4ea2-8379-d10e00cf44ce",
+					"id": "81f9ea4b-6699-4d4f-bdce-fd6832f2ce1f",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a 5XX error returned from the carrier API.",
 					"originalRequest": {
 						"method": "GET",
@@ -5494,6 +5545,7 @@
 					"status": "Bad Gateway",
 					"code": 502,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -5505,7 +5557,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "ec49a93c-73e6-4da6-8b73-8ba307a4ec00",
+					"id": "f622b659-6286-42ee-8588-78cf89b05003",
 					"name": "Locations found that matched the request parameters. If no nearby locations are found then an empty array should be returned.",
 					"originalRequest": {
 						"method": "GET",
@@ -5537,6 +5589,7 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -5548,7 +5601,7 @@
 					"body": "[\n {\n  \"storeId\": \"myStore\",\n  \"storeName\": \"My Store Name\",\n  \"city\": \"London\",\n  \"postcode\": \"WC1X 8XZ\",\n  \"countryCode\": \"GBR\",\n  \"address\": \"200 Grays Inn Rd\",\n  \"latitude\": 1.23,\n  \"longitude\": 4.56,\n  \"telephoneNumber\": \"020 7843 6720\",\n  \"email\": \"info@metapack.com\",\n  \"locationProviderId\": \"ca57a01f-001c-4bf6-aacb-fd2336888462\",\n  \"locationProviderName\": \"Nice Location Provider\",\n  \"ownStores\": true,\n  \"logoUrl\": \"http://www.logos.com/logo.png\",\n  \"photoUrls\": \"http://www.photos.com/photo1.png,http://www.photos.com/photo2.jpg\",\n  \"hasDisabledAccess\": true,\n  \"description\": \"A nice store where you can buy stuff\",\n  \"id\": \"08a01459-5d50-41ed-a46a-b815b967aa26\",\n  \"openingTimesRules\": {\n   \"openingTimesRules\": [\n    {\n     \"rule\": \"every Monday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"08:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    },\n    {\n     \"rule\": \"every Tuesday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"09:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    }\n   ]\n  },\n  \"tags\": [\n   \"tagOne\",\n   \"tagTwo\"\n  ],\n  \"distance\": {\n   \"value\": 900,\n   \"from\": {\n    \"latitude\": 1.23,\n    \"longitude\": 4.56\n   }\n  },\n  \"street\": \"Gray's Inn Road\",\n  \"province\": \"London\",\n  \"buildingName\": \"Metapack House\",\n  \"houseNumber\": \"200\",\n  \"district\": \"London\",\n  \"supplementaryName\": \"Your friendly options provider\",\n  \"languageCode\": \"en\"\n }\n]"
 				},
 				{
-					"id": "f19022f8-433f-4ce2-a994-83252a08836b",
+					"id": "f6ab726d-e2b1-4607-a190-1801c67b8914",
 					"name": "The adapter rejected the request due to the given reason.",
 					"originalRequest": {
 						"method": "GET",
@@ -5580,6 +5633,7 @@
 					"status": "Bad Request",
 					"code": 400,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -5591,7 +5645,7 @@
 					"body": "{\n \"message\": \"Invalid Request\",\n \"errors\": [\n  {\n   \"name\": \"lat\",\n   \"location\": \"query\",\n   \"message\": \"specified field is missing\",\n   \"rejectedValue\": \"invalidLatitude\"\n  },\n  {\n   \"name\": \"lat\",\n   \"location\": \"query\",\n   \"message\": \"specified field is missing\",\n   \"rejectedValue\": \"invalidLatitude\"\n  }\n ]\n}"
 				},
 				{
-					"id": "3a80dd4e-1796-496b-9586-c7edaa3126f2",
+					"id": "dbe5357b-70eb-4efa-88a7-49d444072ac2",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a problem with the adapter itself, not as a result of the carrier API response.",
 					"originalRequest": {
 						"method": "GET",
@@ -5623,6 +5677,7 @@
 					"status": "Internal Server Error",
 					"code": 500,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -5637,7 +5692,7 @@
 		},
 		{
 			"name": "test Copy",
-			"id": "ddc8625b-76b0-4563-9834-9292f67afe72",
+			"id": "87da1ca6-8954-4ba0-aa44-b5cb5c8ee0d8",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -5670,7 +5725,7 @@
 			},
 			"response": [
 				{
-					"id": "7e32aa38-8a1c-4e21-90cb-3a451c7cb6c1",
+					"id": "4907ecf5-ce1d-4624-902b-479e6c797164",
 					"name": "No locations found for the given storeId.",
 					"originalRequest": {
 						"method": "GET",
@@ -5702,6 +5757,7 @@
 					"status": "Not Found",
 					"code": 404,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -5713,7 +5769,7 @@
 					"body": "{\n \"message\": \"Location Not Found\",\n \"errors\": [\n  {\n   \"message\": {}\n  },\n  {\n   \"message\": {}\n  }\n ]\n}"
 				},
 				{
-					"id": "9ed3cd7e-f325-4850-a18e-937ada8d076a",
+					"id": "74b47363-048b-414d-8bd9-a8c91e027c7b",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a problem with the adapter itself, not as a result of the carrier API response.",
 					"originalRequest": {
 						"method": "GET",
@@ -5745,6 +5801,7 @@
 					"status": "Internal Server Error",
 					"code": 500,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -5756,7 +5813,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "4461602d-8c6f-4abb-ba32-ccd1bd403a33",
+					"id": "52a20002-919f-45b0-b51c-2b8654fe466b",
 					"name": "Locations found that matched the request parameters. If no nearby locations are found then an empty array should be returned.",
 					"originalRequest": {
 						"method": "GET",
@@ -5788,6 +5845,7 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -5799,7 +5857,7 @@
 					"body": "[\n {\n  \"storeId\": \"myStore\",\n  \"storeName\": \"My Store Name\",\n  \"city\": \"London\",\n  \"postcode\": \"WC1X 8XZ\",\n  \"countryCode\": \"GBR\",\n  \"address\": \"200 Grays Inn Rd\",\n  \"latitude\": 1.23,\n  \"longitude\": 4.56,\n  \"telephoneNumber\": \"020 7843 6720\",\n  \"email\": \"info@metapack.com\",\n  \"locationProviderId\": \"ca57a01f-001c-4bf6-aacb-fd2336888462\",\n  \"locationProviderName\": \"Nice Location Provider\",\n  \"ownStores\": true,\n  \"logoUrl\": \"http://www.logos.com/logo.png\",\n  \"photoUrls\": \"http://www.photos.com/photo1.png,http://www.photos.com/photo2.jpg\",\n  \"hasDisabledAccess\": true,\n  \"description\": \"A nice store where you can buy stuff\",\n  \"id\": \"08a01459-5d50-41ed-a46a-b815b967aa26\",\n  \"openingTimesRules\": {\n   \"openingTimesRules\": [\n    {\n     \"rule\": \"every Monday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"08:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    },\n    {\n     \"rule\": \"every Tuesday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"09:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    }\n   ]\n  },\n  \"tags\": [\n   \"tagOne\",\n   \"tagTwo\"\n  ],\n  \"distance\": {\n   \"value\": 900,\n   \"from\": {\n    \"latitude\": 1.23,\n    \"longitude\": 4.56\n   }\n  },\n  \"street\": \"Gray's Inn Road\",\n  \"province\": \"London\",\n  \"buildingName\": \"Metapack House\",\n  \"houseNumber\": \"200\",\n  \"district\": \"London\",\n  \"supplementaryName\": \"Your friendly options provider\",\n  \"languageCode\": \"en\"\n }\n]"
 				},
 				{
-					"id": "ca32b8f4-41e1-4300-8048-06fe66874a5e",
+					"id": "51e7aaa4-b510-440c-8f22-fa9693916c74",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a 5XX error returned from the carrier API.",
 					"originalRequest": {
 						"method": "GET",
@@ -5831,6 +5889,7 @@
 					"status": "Bad Gateway",
 					"code": 502,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -5842,7 +5901,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "1b09662f-3eeb-4480-b8e1-84ca47285150",
+					"id": "6872165b-c272-490f-98eb-84d359a91e9b",
 					"name": "The adapter rejected the request due to the given reason.",
 					"originalRequest": {
 						"method": "GET",
@@ -5874,6 +5933,7 @@
 					"status": "Bad Request",
 					"code": 400,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -5888,7 +5948,7 @@
 		},
 		{
 			"name": "test_swagger",
-			"id": "4f4412b7-8c66-4618-b362-9f0eab8f2463",
+			"id": "f3379f51-4747-4c82-9d5b-06aafb193595",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -5922,7 +5982,7 @@
 			},
 			"response": [
 				{
-					"id": "b578c3c7-37e1-4e6f-941d-0485d340536f",
+					"id": "2d2a0b98-e3bb-47d4-953b-f90319b0fec1",
 					"name": "No locations found for the given storeId.",
 					"originalRequest": {
 						"method": "GET",
@@ -5955,6 +6015,7 @@
 					"status": "Not Found",
 					"code": 404,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -5966,7 +6027,7 @@
 					"body": "{\n \"message\": \"Location Not Found\",\n \"errors\": [\n  {\n   \"message\": {}\n  },\n  {\n   \"message\": {}\n  }\n ]\n}"
 				},
 				{
-					"id": "0e0d02e5-4efd-4aef-82b4-af8c0e50f940",
+					"id": "14af3157-76b0-4f0d-b4ea-59ba822e9726",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a 5XX error returned from the carrier API.",
 					"originalRequest": {
 						"method": "GET",
@@ -5999,6 +6060,7 @@
 					"status": "Bad Gateway",
 					"code": 502,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -6010,7 +6072,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "ca8afa65-43fd-475f-8d53-c9cf7ca5cc64",
+					"id": "d530ad6a-4a41-4fd2-8138-1a4f76b715c5",
 					"name": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a problem with the adapter itself, not as a result of the carrier API response.",
 					"originalRequest": {
 						"method": "GET",
@@ -6043,6 +6105,7 @@
 					"status": "Internal Server Error",
 					"code": 500,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -6054,7 +6117,7 @@
 					"body": "{\n \"message\": \"Server Error\",\n \"errors\": [\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  },\n  {\n   \"message\": \"Carrier API timed out with an 504 error\"\n  }\n ]\n}"
 				},
 				{
-					"id": "ec260e0a-7041-424c-b9e3-587f8762a61a",
+					"id": "470c082a-07a3-4121-aba5-58cd70969b40",
 					"name": "Locations found that matched the request parameters. If no nearby locations are found then an empty array should be returned.",
 					"originalRequest": {
 						"method": "GET",
@@ -6087,6 +6150,7 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -6098,7 +6162,7 @@
 					"body": "[\n {\n  \"storeId\": \"myStore\",\n  \"storeName\": \"My Store Name\",\n  \"city\": \"London\",\n  \"postcode\": \"WC1X 8XZ\",\n  \"countryCode\": \"GBR\",\n  \"address\": \"200 Grays Inn Rd\",\n  \"latitude\": 1.23,\n  \"longitude\": 4.56,\n  \"telephoneNumber\": \"020 7843 6720\",\n  \"email\": \"info@metapack.com\",\n  \"locationProviderId\": \"ca57a01f-001c-4bf6-aacb-fd2336888462\",\n  \"locationProviderName\": \"Nice Location Provider\",\n  \"ownStores\": true,\n  \"logoUrl\": \"http://www.logos.com/logo.png\",\n  \"photoUrls\": \"http://www.photos.com/photo1.png,http://www.photos.com/photo2.jpg\",\n  \"hasDisabledAccess\": true,\n  \"description\": \"A nice store where you can buy stuff\",\n  \"id\": \"08a01459-5d50-41ed-a46a-b815b967aa26\",\n  \"openingTimesRules\": {\n   \"openingTimesRules\": [\n    {\n     \"rule\": \"every Monday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"08:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    },\n    {\n     \"rule\": \"every Tuesday\",\n     \"openingClosingTimes\": [\n      {\n       \"openingAt\": \"09:00\",\n       \"closingAt\": \"18:00\"\n      }\n     ]\n    }\n   ]\n  },\n  \"tags\": [\n   \"tagOne\",\n   \"tagTwo\"\n  ],\n  \"distance\": {\n   \"value\": 900,\n   \"from\": {\n    \"latitude\": 1.23,\n    \"longitude\": 4.56\n   }\n  },\n  \"street\": \"Gray's Inn Road\",\n  \"province\": \"London\",\n  \"buildingName\": \"Metapack House\",\n  \"houseNumber\": \"200\",\n  \"district\": \"London\",\n  \"supplementaryName\": \"Your friendly options provider\",\n  \"languageCode\": \"en\"\n }\n]"
 				},
 				{
-					"id": "00ec5dee-8b76-4179-b9a8-8ac6b261cd05",
+					"id": "253c0572-31e5-4a24-8032-8a4cb79433ed",
 					"name": "The adapter rejected the request due to the given reason.",
 					"originalRequest": {
 						"method": "GET",
@@ -6131,6 +6195,7 @@
 					"status": "Bad Request",
 					"code": 400,
 					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -6148,7 +6213,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "79a1dcc8-2a45-46a4-bce9-c799f6c10112",
+				"id": "4a16a06c-b939-46c0-8936-a909041b1ec0",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -6158,7 +6223,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "3fd63276-38a3-4348-9069-853763b27f7b",
+				"id": "53817a97-e4dc-424f-9f6e-3815172bf4af",
 				"type": "text/javascript",
 				"exec": [
 					""
