@@ -1,0 +1,838 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Location Adapter Api spec",
+    "description": "This document defines the api specification that all location adapters must adhere to. changed description",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "find nearby locations or by store id",
+        "description": "Find nearby locations in an area (when lat, long, radius are present) or by store id (when a store_id is present)",
+        "operationId": "find_nearby_locations_or_find_locations_by_storeId",
+        "parameters": [
+          {
+            "name": "spanId",
+            "in": "header",
+            "description": "Distributed tracing unique identifier of a request span.",
+            "required": false,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "spanId": {
+                "value": "ec5e1986-946c-42bb-8bda-578e65a773aa"
+              }
+            }
+          },
+          {
+            "name": "traceId",
+            "in": "header",
+            "description": "Distributed tracing unique identifier of a request trace.",
+            "required": false,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "traceId": {
+                "value": "3f644312-e416-4c1a-a7b8-77a5833afa62"
+              }
+            }
+          },
+          {
+            "name": "correlation_id",
+            "in": "query",
+            "description": "Distributed tracing unique identifier of a user's end to end journey.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "correlation_id": {
+                "value": "bbd957c1-350e-44a9-ac63-c48b7ac41972"
+              }
+            }
+          },
+          {
+            "name": "retailer_id",
+            "in": "query",
+            "description": "Unique identifier of the retailer whose locations to find in find nearby locations requests. Preferably we do not want to use this as location services should be retailer agnostics.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "retailer_id": {
+                "value": "132ad5c4-08af-4509-bd29-1d79176be33f"
+              }
+            },
+            "x-context": [
+              {
+                "context": "findNearbyLocations",
+                "required": false
+              }
+            ]
+          },
+          {
+            "name": "location_provider_id",
+            "in": "query",
+            "description": "Unique identifier of the location provider whose locations to find. Used in find locations by store id requests.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "location_provider_id": {
+                "value": "76754f2a-83ae-4584-9356-70743b28d82e"
+              }
+            },
+            "x-context": [
+              {
+                "context": "findLocationsByStoreId",
+                "required": false
+              }
+            ]
+          },
+          {
+            "name": "store_id",
+            "in": "query",
+            "description": "Unique identifier (for the location provider) of the location to retrieve. Used in find locations by store id requests, where it is manadatory.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "store_id": {
+                "value": "myStore"
+              }
+            },
+            "x-context": [
+              {
+                "context": "findLocationsByStoreId",
+                "required": true
+              }
+            ]
+          },
+          {
+            "name": "country_code",
+            "in": "query",
+            "description": "Alpha-3 ISO 3166-1 code of the country to find locations in. Used in find locations by store id and find nearby locations requests. Mandatory if the parameter multi_country is not specified or false",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "country_code": {
+                "value": "GBR"
+              }
+            },
+            "x-context": [
+              {
+                "context": "findLocationsByStoreId",
+                "required": false
+              },
+              {
+                "context": "findNearbyLocations",
+                "required": "conditional",
+                "dependsOn": [
+                  {
+                    "multi_country": "The parameter country_code is mandatory if the parameter multi_country is not specified or false."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "multi_country",
+            "in": "query",
+            "description": "Boolean indicating if the search radius can span multiple countries. Used in find nearby locations requests.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "boolean"
+            },
+            "examples": {
+              "multi_country": {
+                "value": true
+              }
+            },
+            "x-context": [
+              {
+                "context": "findNearbyLocations",
+                "required": false
+              }
+            ]
+          },
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "Latitude around which to find locations. Used in find nearby locations requests, where it is manadatory.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "number"
+            },
+            "examples": {
+              "lat": {
+                "value": 10.2563
+              }
+            },
+            "x-context": [
+              {
+                "context": "findNearbyLocations",
+                "required": true,
+                "dependsOn": [
+                  "lon",
+                  "radius"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "lon",
+            "in": "query",
+            "description": "Longitude around which to find locations. Used in find nearby locations requests, where it is manadatory.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "number"
+            },
+            "examples": {
+              "lon": {
+                "value": 53.765
+              }
+            },
+            "x-context": [
+              {
+                "context": "findNearbyLocations",
+                "required": true,
+                "dependsOn": [
+                  "lat",
+                  "radius"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "radius",
+            "in": "query",
+            "description": "Radius of the search area within which to find locations. Used in find nearby locations requests, where it is mandatory. Unit of measurement is metres.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer"
+            },
+            "examples": {
+              "radius": {
+                "value": 10000
+              }
+            },
+            "x-context": [
+              {
+                "context": "findNearbyLocations",
+                "required": true,
+                "dependsOn": [
+                  "lat",
+                  "lon"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "min",
+            "in": "query",
+            "description": "Minimum number of locations to return, not necessarily within the original radius. Used in find nearby locations requests.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer"
+            },
+            "examples": {
+              "min": {
+                "value": 5
+              }
+            },
+            "x-context": [
+              {
+                "context": "findNearbyLocations",
+                "required": false
+              }
+            ]
+          },
+          {
+            "name": "max",
+            "in": "query",
+            "description": "Maximum number of locations to return. Used in find nearby locations requests.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer"
+            },
+            "examples": {
+              "max": {
+                "value": 10
+              }
+            },
+            "x-context": [
+              {
+                "context": "findNearbyLocations",
+                "required": false
+              }
+            ]
+          },
+          {
+            "name": "configurations",
+            "in": "query",
+            "description": "Exclusion Filter of locations tags. Used in find nearby locations requests. Comma separated list of entries, each made of a country code followed by a colon and an array of comma separated exclusion tags",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "examples": {
+              "configurations": {
+                "value": "DEU:[CLOSED,LT:packStation],GBR:[CLOSED,LT:packStation]"
+              }
+            },
+            "x-context": [
+              {
+                "context": "findNearbyLocations",
+                "required": false
+              }
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Locations found that matched the request parameters. If no nearby locations are found then an empty array should be returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200"
+                },
+                "examples": {
+                  "LocationsSearchResults": {
+                    "value": [
+                      {
+                        "storeId": "myStore",
+                        "storeName": "My Store Name",
+                        "city": "London",
+                        "postcode": "WC1X 8XZ",
+                        "countryCode": "GBR",
+                        "address": "200 Grays Inn Rd",
+                        "latitude": 1.23,
+                        "longitude": 4.56,
+                        "telephoneNumber": "020 7843 6720",
+                        "email": "info@metapack.com",
+                        "locationProviderId": "ca57a01f-001c-4bf6-aacb-fd2336888462",
+                        "locationProviderName": "Nice Location Provider",
+                        "ownStores": true,
+                        "logoUrl": "http://www.logos.com/logo.png",
+                        "photoUrls": "http://www.photos.com/photo1.png,http://www.photos.com/photo2.jpg",
+                        "hasDisabledAccess": true,
+                        "description": "A nice store where you can buy stuff",
+                        "id": "08a01459-5d50-41ed-a46a-b815b967aa26",
+                        "openingTimesRules": {
+                          "openingTimesRules": [
+                            {
+                              "rule": "every Monday",
+                              "openingClosingTimes": [
+                                {
+                                  "openingAt": "08:00",
+                                  "closingAt": "18:00"
+                                }
+                              ]
+                            },
+                            {
+                              "rule": "every Tuesday",
+                              "openingClosingTimes": [
+                                {
+                                  "openingAt": "09:00",
+                                  "closingAt": "18:00"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        "tags": [
+                          "tagOne",
+                          "tagTwo"
+                        ],
+                        "distance": {
+                          "value": 900,
+                          "from": {
+                            "latitude": 1.23,
+                            "longitude": 4.56
+                          }
+                        },
+                        "street": "Gray's Inn Road",
+                        "province": "London",
+                        "buildingName": "Metapack House",
+                        "houseNumber": "200",
+                        "district": "London",
+                        "supplementaryName": "Your friendly options provider",
+                        "languageCode": "en"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The adapter rejected the request due to the given reason.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadRequestResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No locations found for the given storeId.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundResponse"
+                }
+              }
+            },
+            "x-context": [
+              {
+                "context": "findLocationsByStoreId"
+              }
+            ]
+          },
+          "500": {
+            "description": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a problem with the adapter itself, not as a result of the carrier API response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "The adapter has encountered an server side error, not as a direct result of request content. This should be for when there is a 5XX error returned from the carrier API.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "LocationsSearchResults": {
+        "type": "array",
+        "description": "Array of location search results sorted by distance to provided lat long in ascending order.",
+        "items": {
+          "$ref": "#/components/schemas/LocationsSearchResult"
+        }
+      },
+      "LocationsSearchResult": {
+        "type": "object",
+        "properties": {
+          "storeId": {
+            "type": "string",
+            "description": "The identifier of the store"
+          },
+          "storeName": {
+            "type": "string",
+            "description": "The name of the store"
+          },
+          "city": {
+            "type": "string",
+            "description": "The name of the city of the store"
+          },
+          "postcode": {
+            "type": "string",
+            "description": "The postcode of the store"
+          },
+          "countryCode": {
+            "type": "string",
+            "description": "Alpha-3 ISO 3166-1 country code of the store."
+          },
+          "address": {
+            "type": "string",
+            "description": "The address of the store"
+          },
+          "latitude": {
+            "type": "number",
+            "description": "The latitude of the store"
+          },
+          "longitude": {
+            "type": "number",
+            "description": "The longitude of the store"
+          },
+          "telephoneNumber": {
+            "type": "string",
+            "description": "The telephoneNumber of the store"
+          },
+          "email": {
+            "type": "string",
+            "description": "The telephoneNumber of the store"
+          },
+          "locationProviderId": {
+            "type": "string",
+            "description": "The identifier of the location prodivder of the store",
+            "format": "uuid"
+          },
+          "locationProviderName": {
+            "type": "string",
+            "description": "The name of the location prodivder of the store"
+          },
+          "ownStores": {
+            "type": "boolean",
+            "description": "The location is provided by the retailer itself."
+          },
+          "logoUrl": {
+            "type": "string",
+            "description": "Url of the logo image, used for display"
+          },
+          "photoUrls": {
+            "type": "string",
+            "description": "Urls of the photos of the store"
+          },
+          "hasDisabledAccess": {
+            "type": "boolean",
+            "description": "True if the store provides access for disabled individuals"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the store"
+          },
+          "id": {
+            "type": "string",
+            "description": "Identifier of the store",
+            "format": "uuid"
+          },
+          "openingTimesRules": {
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LocationOpeningTimesRules"
+              }
+            ]
+          },
+          "tags": {
+            "type": "array",
+            "description": "Tags of the store",
+            "items": {
+              "type": "string"
+            }
+          },
+          "distance": {
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Distance"
+              }
+            ]
+          },
+          "street": {
+            "type": "string",
+            "description": "The street of the store"
+          },
+          "province": {
+            "type": "string",
+            "description": "The province of the store"
+          },
+          "buildingName": {
+            "type": "string",
+            "description": "The name of the building of the store"
+          },
+          "houseNumber": {
+            "type": "string",
+            "description": "The name of the building of the store"
+          },
+          "district": {
+            "type": "string",
+            "description": "The district of the store"
+          },
+          "supplementaryName": {
+            "type": "string",
+            "description": "The supplementary name of the store"
+          },
+          "languageCode": {
+            "type": "string",
+            "description": "The language code for the store"
+          }
+        },
+        "description": "A locations search result"
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Generic one line description of the problem with the request.",
+            "example": "Server Error"
+          },
+          "errors": {
+            "type": "array",
+            "description": "List of specific errors that occurred when processing the request.",
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponse_errors"
+            }
+          }
+        },
+        "description": "Response returned when there is a problem with returning a successful response."
+      },
+      "BadRequestResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Generic one line description of the problem with the request. The validation should be done before the request is sent to the carrier API, so that we fail fast. However, unexpected 4XX can be propagated upstream.",
+            "example": "Invalid Request"
+          },
+          "errors": {
+            "type": "array",
+            "description": "List of specific errors that occurred when processing the request.",
+            "items": {
+              "$ref": "#/components/schemas/BadRequestResponse_errors"
+            }
+          }
+        },
+        "description": "Response returned when the incoming request is a bad request."
+      },
+      "NotFoundResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Generic one line description of the problem with the request.",
+            "example": "Location Not Found"
+          },
+          "errors": {
+            "type": "array",
+            "description": "List of specific errors that occurred when processing the request.",
+            "items": {
+              "$ref": "#/components/schemas/NotFoundResponse_errors"
+            }
+          }
+        },
+        "description": "Response returned when no locations could be found for a given storeId",
+        "x-context": [
+          {
+            "context": "findLocationsByStoreId"
+          }
+        ]
+      },
+      "LocationOpeningTimesRules": {
+        "type": "object",
+        "properties": {
+          "openingTimesRules": {
+            "type": "array",
+            "description": "The opening times per weekday, of a given location. These rules are optional. If none is specified, the assumption is that the location or store is never available.",
+            "items": {
+              "$ref": "#/components/schemas/LocationOpeningTimesRule"
+            }
+          }
+        },
+        "description": "Location opening time rules"
+      },
+      "LocationOpeningTimesRule": {
+        "type": "object",
+        "properties": {
+          "rule": {
+            "type": "string",
+            "description": "The rule that represents that location's opening times. The response will be in the form \"(?i)every\\\\s(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\""
+          },
+          "openingClosingTimes": {
+            "type": "array",
+            "description": "The opening closing times",
+            "items": {
+              "$ref": "#/components/schemas/OpeningClosingTime"
+            }
+          }
+        },
+        "description": "The opening times of a location."
+      },
+      "OpeningClosingTime": {
+        "type": "object",
+        "properties": {
+          "openingAt": {
+            "type": "string",
+            "description": "The ISO time at which the location opens (https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#ISO_TIME)"
+          },
+          "closingAt": {
+            "type": "string",
+            "description": "The ISO time at which the location closes (https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#ISO_TIME)"
+          }
+        },
+        "description": "The opening times rule of a location"
+      },
+      "Distance": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number",
+            "description": "The distance value in metres"
+          },
+          "from": {
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Coordinates"
+              }
+            ]
+          }
+        },
+        "description": "The distance from the origin search point defined by latitude/longitude search parameters"
+      },
+      "Coordinates": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "description": "The latitude value of the co-ordinates"
+          },
+          "longitude": {
+            "type": "number",
+            "description": "The longitude value of the co-ordinates"
+          }
+        },
+        "description": "The lat/long of a location"
+      },
+      "LocationProvider": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name"
+          },
+          "details": {
+            "type": "string",
+            "description": "Details"
+          },
+          "ownStores": {
+            "type": "boolean",
+            "description": "OwnStores"
+          },
+          "archivingPeriod": {
+            "maximum": 30,
+            "minimum": 1,
+            "type": "integer",
+            "description": "The number of days to archive deleted location information(soft delete). After the specified days have elapsed, the information is permanently deleted (hard delete)."
+          },
+          "locationsSource": {
+            "type": "object",
+            "description": "LocationsSource",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LocationsSource"
+              }
+            ]
+          }
+        },
+        "description": "Location provider (unused during serialisation)"
+      },
+      "LocationsSource": {
+        "type": "object",
+        "properties": {
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint"
+          }
+        },
+        "description": "Location source"
+      },
+      "inline_response_200": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/LocationsSearchResults"
+          }
+        ]
+      },
+      "ErrorResponse_errors": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Detailed description of the specific problem, any error messages from the carrier API should be recorded here.",
+            "example": "Carrier API timed out with an 504 error"
+          }
+        }
+      },
+      "BadRequestResponse_errors": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the field with which there is a problem",
+            "example": "lat"
+          },
+          "location": {
+            "type": "string",
+            "description": "Location of the field",
+            "example": "query",
+            "enum": [
+              "query",
+              "body",
+              "header"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "description": "Explanation of the problem with the field.",
+            "example": "specified field is missing"
+          },
+          "rejectedValue": {
+            "type": "string",
+            "description": "The value in the field which has issues.",
+            "example": "invalidLatitude"
+          }
+        }
+      },
+      "NotFoundResponse_errors": {
+        "properties": {
+          "message": {
+            "description": "Message including for what storeId locations couldn't be found.",
+            "example": "No locations found for storeId 1523"
+          }
+        }
+      }
+    }
+  }
+}
