@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Location Adapter Api spec",
-    "description": "This document defines the api specification that all location adapters must adhere to.",
+    "description": "This document defines the api specification that all location adapters must adhere to. changed description",
     "version": "1.0.0"
   },
   "servers": [
