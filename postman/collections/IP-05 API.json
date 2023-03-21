@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "a08258c9-024e-404b-ab29-389840e9e983",
+		"_postman_id": "262791c5-463a-4a31-8309-d5d7ee0f1af9",
 		"name": "IP-05 API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "4104157-a08258c9-024e-404b-ab29-389840e9e983"
+		"_uid": "4104157-262791c5-463a-4a31-8309-d5d7ee0f1af9"
 	},
 	"item": [
 		{
@@ -11,7 +11,7 @@
 			"item": [
 				{
 					"name": "GetMachines_test",
-					"id": "66dcf87b-1d96-4ed1-8c49-241b09c054ae",
+					"id": "7647c860-c195-4672-b5ac-2746eed9e849",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -45,7 +45,7 @@
 					"response": []
 				}
 			],
-			"id": "7af1b4b5-b1e1-4a2a-a8d9-8d03dce8a561"
+			"id": "75a76a76-f09e-4509-820b-25ee3209cd41"
 		},
 		{
 			"name": "CreateParcel_stage",
@@ -57,11 +57,11 @@
 							"pm.collectionVariables.set(\"parcel_id\", pm.response.json().id);"
 						],
 						"type": "text/javascript",
-						"id": "b5f7c971-086d-4e21-8ac1-eaa27ef74672"
+						"id": "96a75371-2f38-4085-a2b8-e851e9cb56dd"
 					}
 				}
 			],
-			"id": "0e066c9f-0539-4b1a-aaf1-7b25cd9f27e7",
+			"id": "b5e14743-01a0-4c7b-8c43-74ab7defb249",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -126,11 +126,11 @@
 							"pm.collectionVariables.set(\"parcel_id\", pm.response.json().id);"
 						],
 						"type": "text/javascript",
-						"id": "9f627837-3efd-4510-b30e-87cd3b6e88db"
+						"id": "fe8849a0-555e-4d08-9ad1-fe47ee092cae"
 					}
 				}
 			],
-			"id": "534415e3-43f6-4ea4-a98a-cdfd8385d6fc",
+			"id": "44e6ab69-01ed-4161-be15-cd3546d19d0d",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -183,7 +183,7 @@
 		},
 		{
 			"name": "CreateParcel_mock",
-			"id": "f6733491-efe7-411e-983d-9fc6cfdaf6fc",
+			"id": "4d8fa3a5-3815-4400-8f60-ce550d3b6312",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -234,7 +234,7 @@
 		},
 		{
 			"name": "PayForParcel_test_api",
-			"id": "9e318854-9610-46fc-9e30-305111090691",
+			"id": "96ac59ef-5f53-453b-af19-23f54f57e1dc",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -281,7 +281,7 @@
 		},
 		{
 			"name": "PayForParcel_mock",
-			"id": "3536af74-4e32-4201-877f-8401b9af0e32",
+			"id": "9bbe4449-d00b-4ebb-ba23-9a5aa6cb828d",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -327,7 +327,7 @@
 		},
 		{
 			"name": "GetLabel_test",
-			"id": "c99baccb-fc0c-4a48-8705-06f74c012905",
+			"id": "a34458e7-4f18-4610-96f9-fdc69a212481",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -384,7 +384,7 @@
 		},
 		{
 			"name": "GetLabel_test_pdf",
-			"id": "ebf7b86a-2be4-494c-9a0c-0eecc48def79",
+			"id": "34106e22-cd2c-4d70-b566-82a99b2867c0",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -437,7 +437,7 @@
 		},
 		{
 			"name": "GetLabel_test_zpl",
-			"id": "f901cedc-4505-409b-97ad-da4382e7a3dc",
+			"id": "8a7469cc-d204-454c-824c-4456644f0533",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -490,7 +490,7 @@
 		},
 		{
 			"name": "GetLabel_mock",
-			"id": "03982fe0-c720-4e2f-ba93-0c0fe83ce453",
+			"id": "a942c197-08d7-4a6a-ab2f-7937986b4f1c",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -545,7 +545,7 @@
 		},
 		{
 			"name": "GetMachines_stage",
-			"id": "a58acc7a-2cea-4dd0-b20a-6ba949104c49",
+			"id": "7ceeca4f-6c1f-4685-96bd-36af3d6ac739",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -570,7 +570,7 @@
 		},
 		{
 			"name": "GetMachines_test",
-			"id": "349cbbe7-e8da-4641-b866-71ff193ece64",
+			"id": "ea7d0955-1d79-4fc2-96a4-6ed03db41264",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -595,7 +595,7 @@
 		},
 		{
 			"name": "GetMachines_prod",
-			"id": "bece5edb-9648-43b5-8822-50031c64c774",
+			"id": "7092edd4-c390-4c9d-aa31-1e86487cf676",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -620,7 +620,7 @@
 		},
 		{
 			"name": "GetMachines_api_v2",
-			"id": "3e3a9267-4fd1-4680-a719-b575c682b2d1",
+			"id": "5acb3801-10be-4298-8d4a-a8282e61188e",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -650,7 +650,7 @@
 		},
 		{
 			"name": "GetMachines_mock",
-			"id": "3265fd7e-5c90-4843-9b09-bc2a6ac268d4",
+			"id": "dc340648-c5c3-4ebe-8471-7391ee2e2d0c",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -683,7 +683,7 @@
 				"exec": [
 					""
 				],
-				"id": "d602c551-8d00-4838-b0a9-ae68197d9174"
+				"id": "ae45b855-0535-4442-a3c6-160d1141de79"
 			}
 		},
 		{
@@ -693,7 +693,7 @@
 				"exec": [
 					""
 				],
-				"id": "e3d8ebb4-b34a-405b-a96f-b4809203d4fd"
+				"id": "0e61446d-12a2-4d2c-a62a-d04dc34ad742"
 			}
 		}
 	],
