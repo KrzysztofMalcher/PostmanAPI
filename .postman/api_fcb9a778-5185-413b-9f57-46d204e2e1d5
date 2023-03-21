@@ -9,6 +9,7 @@ id = fcb9a778-5185-413b-9f57-46d204e2e1d5
 
 [config.relations.collections]
 rootDirectory = postman/collections
+files[] = {"id":"26471283-601d68c4-5d96-4a48-a507-6c3221bec372","path":"Dupa.json","metaData":{}}
 files[] = {"id":"4104157-262791c5-463a-4a31-8309-d5d7ee0f1af9","path":"IP-05 API.json","metaData":{}}
 files[] = {"id":"4104157-a9f89ad2-75fa-4bf3-8d8b-a5231755f370","path":"Location Adapter Api spec.json","metaData":{}}
 files[] = {"id":"4104157-93ce137b-5969-4721-9347-c61ab48b24a8","path":"test collection.json","metaData":{}}
